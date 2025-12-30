@@ -1,4 +1,4 @@
-# Mystia Voice Backend
+# Mystia Server
 
 Mystia 是一个类似 Discord/TeamSpeak 的开源语音服务器后端，专为高性能语音通话设计。
 
