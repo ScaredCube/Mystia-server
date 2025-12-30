@@ -1,6 +1,6 @@
 # Mystia Voice Backend
 
-Mystia 是一个类似 Discord/TeamSpeak 的语音服务器后端，专为高性能语音通话设计。
+Mystia 是一个类似 Discord/TeamSpeak 的开源语音服务器后端，专为高性能语音通话设计。
 
 ## 特性
 
