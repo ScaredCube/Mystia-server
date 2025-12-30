@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package voice;
+
+option go_package = "./proto";
+
+service AuthService {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+service ChannelService {
+  rpc ListChannels(ListChannelsRequest) returns (ListChannelsResponse);
+  rpc JoinChannel(JoinChannelRequest) returns (JoinChannelResponse);
+  rpc CreateChannel(CreateChannelRequest) returns (Channel);
+}
+
+service AdminService {
+  rpc SetAdminStatus(SetAdminStatusRequest) returns (SetAdminStatusResponse);
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+}
+
+message User {
+  string id = 1;
+  string username = 2;
+  string nickname = 3;
+  string role = 4;
+}
+
+message Channel {
+  string id = 1;
+  string name = 2;
+}
+
+message RegisterRequest {
+  string username = 1;
+  string password = 2;
+  string nickname = 3;
+}
+
+message RegisterResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string token = 1;
+  User user = 2;
+}
+
+message ListChannelsRequest {}
+
+message ListChannelsResponse {
+  repeated Channel channels = 1;
+}
+
+message JoinChannelRequest {
+  string channel_id = 1;
+}
+
+message JoinChannelResponse {
+  string token = 1;
+  string url = 2;
+}
+
+message CreateChannelRequest {
+  string name = 1;
+}
+
+message SetAdminStatusRequest {
+  string user_id = 1;
+  bool is_admin = 2;
+}
+
+message SetAdminStatusResponse {
+  bool success = 1;
+}
+
+message ListUsersRequest {}
+
+message ListUsersResponse {
+  repeated User users = 1;
+}
